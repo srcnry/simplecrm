@@ -1,4 +1,4 @@
-package com.missingartifacats.crm;
+package com.missingartifacts.crm;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

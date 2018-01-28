@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Crm</title>
+</head>
+<body>
+
+
+<h1>Vessel List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Vessel Name</th>
+        <th>Type Of Vessel</th>
+        <th>Customer</th>
+    </tr>
+    <tr th:each="vessel : ${vessels}">
+        <td th:text="${vessel.id}">123</td>
+        <td th:text="${vessel.vesselName}">ABC</td>
+        <td th:text="${vessel.typeOfVessel}">Turkey</td>
+        <td th:text="${vessel.customer}">ABC@example.com</td>
+    </tr>
+
+</table>
+
+</body>
+</html>
