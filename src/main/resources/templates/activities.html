@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Crm</title>
+</head>
+<body>
+
+<h1>Activity List</h1>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Activity Date</th>
+        <th>Contact Name</th>
+        <th>Contact Surname</th>
+        <th>Customer</th>
+        <th>Activity Type</th>
+        <th>Explanation</th>
+    </tr>
+    <tr th:each="activity : ${activities}">
+        <td th:text="${activity.id}">123</td>
+        <td th:text="${activity.activityDate}">Mr</td>
+        <td th:text="${activity.contact.contactName}">XYX</td>
+        <td th:text="${activity.contact.contactSurname}">ABC</td>
+        <td th:text="${activity.customer.customerName}">ABC</td>
+        <td th:text="${activity.activityType}">ABC</td>
+        <td th:text="${activity.explanation}">ABC SHipping</td>
+    </tr>
+
+</table>
+
+</body>
+</html>

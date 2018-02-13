@@ -15,6 +15,7 @@ public class Customer {
 
     private String customerName;
     private String OriginCountry;
+    private String OriginCity;
     private String email;
     private String web;
 
@@ -68,6 +69,14 @@ public class Customer {
 
     public void setWeb(String web) {
         this.web = web;
+    }
+
+    public String getOriginCity() {
+        return OriginCity;
+    }
+
+    public void setOriginCity(String originCity) {
+        OriginCity = originCity;
     }
 
     public Set<Vessel> getVessels() {

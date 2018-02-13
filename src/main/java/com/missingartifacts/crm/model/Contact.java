@@ -1,6 +1,8 @@
 package com.missingartifacts.crm.model;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Contact {
@@ -9,10 +11,9 @@ public class Contact {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String Salutation;
+    private String salutation;
     private String contactName;
     private String contactSurname;
-
     private String title;
     private String email;
 
@@ -20,10 +21,13 @@ public class Contact {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
+    @OneToMany(mappedBy = "contact")
+    private List<Activity> activityList = new ArrayList<>();
+
     public Contact(){}
 
     public Contact(String salutation, String contactName, String contactSurname, String title, String email, Customer customer) {
-        Salutation = salutation;
+        this.salutation = salutation;
         this.contactName = contactName;
         this.contactSurname = contactSurname;
         this.title = title;
@@ -40,11 +44,11 @@ public class Contact {
     }
 
     public String getSalutation() {
-        return Salutation;
+        return this.salutation;
     }
 
     public void setSalutation(String salutation) {
-        Salutation = salutation;
+        this.salutation = salutation;
     }
 
     public String getContactName() {
@@ -85,5 +89,13 @@ public class Contact {
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
+    }
+
+    public List<Activity> getActivityList() {
+        return activityList;
+    }
+
+    public void setActivityList(List<Activity> activityList) {
+        this.activityList = activityList;
     }
 }
