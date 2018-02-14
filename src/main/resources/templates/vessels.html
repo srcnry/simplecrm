@@ -2,27 +2,33 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <div th:insert="~{header :: bootstrap}"></div>
     <title>Simple Crm</title>
 </head>
 <body>
 
-
-<h1>Vessel List</h1>
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Vessel Name</th>
-        <th>Type Of Vessel</th>
-        <th>Customer</th>
-    </tr>
-    <tr th:each="vessel : ${vessels}">
-        <td th:text="${vessel.id}">123</td>
-        <td th:text="${vessel.vesselName}">ABC</td>
-        <td th:text="${vessel.typeOfVessel}">Turkey</td>
-        <td th:text="${vessel.customer}">ABC@example.com</td>
-    </tr>
-
-</table>
-
+    <div th:insert="~{header :: copy}"></div>
+    <div class="container-fluid">
+            <p class="h3">Vessel List</p>
+            <table class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Vessel Name</th>
+                        <th scope="col">Type Of Vessel</th>
+                        <th scope="col">Customer</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="vessel: ${vessels}">
+                    <th scope="row" th:text="${vessel.id}">123</td>
+                    <td th:text="${vessel.vesselName}">ABC</td>
+                    <td th:text="${vessel.typeOfVessel}">Turkey</td>
+                    <td th:text="${vessel.customer}">ABC@example.com</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
 </body>
+
 </html>

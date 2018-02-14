@@ -2,33 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <div th:insert="~{header :: bootstrap}"></div>
     <title>Simple Crm</title>
 </head>
 <body>
+    <div th:insert="~{header :: copy}"></div>
+    <div class="container-fluid">
 
-<h1>Activity List</h1>
+        <p class="h3">Activity List</p>
 
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Activity Date</th>
-        <th>Contact Name</th>
-        <th>Contact Surname</th>
-        <th>Customer</th>
-        <th>Activity Type</th>
-        <th>Explanation</th>
-    </tr>
-    <tr th:each="activity : ${activities}">
-        <td th:text="${activity.id}">123</td>
-        <td th:text="${activity.activityDate}">Mr</td>
-        <td th:text="${activity.contact.contactName}">XYX</td>
-        <td th:text="${activity.contact.contactSurname}">ABC</td>
-        <td th:text="${activity.customer.customerName}">ABC</td>
-        <td th:text="${activity.activityType}">ABC</td>
-        <td th:text="${activity.explanation}">ABC SHipping</td>
-    </tr>
-
-</table>
-
+        <table class="table table-hover table-sm">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Activity Date</th>
+                <th scope="col">Contact Name</th>
+                <th scope="col">Contact Surname</th>
+                <th scope="col">Customer</th>
+                <th scope="col">Activity Type</th>
+                <th scope="col">Explanation</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="activity : ${activities}">
+                <th scope="row" th:text="${activity.id}">123</th>
+                <td th:text="${activity.activityDate}">Mr</td>
+                <td th:text="${activity.contact.contactName}">XYX</td>
+                <td th:text="${activity.contact.contactSurname}">ABC</td>
+                <td th:text="${activity.customer.customerName}">ABC</td>
+                <td th:text="${activity.activityType}">ABC</td>
+                <td th:text="${activity.explanation}">ABC SHipping</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>

@@ -2,31 +2,35 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <div th:insert="~{header :: bootstrap}"></div>
     <title>Simple Crm</title>
 </head>
 <body>
-
-<h1>Contact List</h1>
-
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Salutation</th>
-        <th>Contact Name</th>
-        <th>Contact Surname</th>
-        <th>E-mail</th>
-        <th>Customer</th>
-    </tr>
-    <tr th:each="contact : ${contacts}">
-        <td th:text="${contact.id}">123</td>
-        <td th:text="${contact.salutation}">Mr</td>
-        <td th:text="${contact.contactName}">XYX</td>
-        <td th:text="${contact.contactSurname}">ABC</td>
-        <td th:text="${contact.email}">ABC</td>
-        <td th:text="${contact.customer.customerName}">ABC SHipping</td>
-    </tr>
-
-</table>
-
+    <div th:insert="~{header :: copy}"></div>
+    <div class="container-fluid">
+         <p class="h3">Contact List</p>
+         <table class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Salutation</th>
+                    <th scope="col">Contact Name</th>
+                    <th scope="col">Contact Surname</th>
+                    <th scope="col">E-mail</th>
+                    <th scope="col">Customer</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="contact : ${contacts}">
+                    <th scope="row" th:text="${contact.id}">123</td>
+                    <td th:text="${contact.salutation}">Mr</td>
+                    <td th:text="${contact.contactName}">XYX</td>
+                    <td th:text="${contact.contactSurname}">ABC</td>
+                    <td th:text="${contact.email}">ABC</td>
+                    <td th:text="${contact.customer.customerName}">ABC SHipping</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
